@@ -9,8 +9,10 @@ class Window
 {
     public:
         Window(size_t width, size_t height, 
-                const std::string& title = "");
+                const std::string& title);
        ~Window();
+
+       SDL_Window* get() const;
     private:
        std::string title_;
        size_t width_;

@@ -32,3 +32,8 @@ void Window::cleanup()
     }
 }
 
+SDL_Window* Window::get() const
+{
+    return window_;
+}
+
