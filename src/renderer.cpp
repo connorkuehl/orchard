@@ -20,10 +20,10 @@ void Renderer::cleanup()
     }
 }
 
-void Renderer::attachToWindow(SDL_Window& window)
+void Renderer::attachToWindow(SDL_Window* window)
 {
     renderer_ = SDL_CreateRenderer(
-            &window, 
+            window, 
             -1, 
             SDL_RENDERER_ACCELERATED |
             SDL_RENDERER_PRESENTVSYNC

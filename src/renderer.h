@@ -9,7 +9,7 @@ class Renderer
         Renderer();
        ~Renderer();
 
-       void attachToWindow(SDL_Window& window);
+       void attachToWindow(SDL_Window* window);
        void clear();
        void show();
     private:
