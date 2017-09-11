@@ -14,6 +14,8 @@ class Renderer
        void show();
     private:
        SDL_Renderer* renderer_;
+
+       void cleanup();
 };
 
 #endif // RENDERER_H_
