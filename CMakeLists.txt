@@ -14,6 +14,7 @@ set(SOURCE_FILES
     src/sdl_application.cpp
     src/game.cpp
     src/window.cpp
+    src/renderer.cpp
     )
 add_executable(Orchard ${SOURCE_FILES})
 target_link_libraries(${PROJECT_NAME}
