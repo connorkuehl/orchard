@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "renderer.h"
 
 Renderer::Renderer()
@@ -26,6 +28,10 @@ void Renderer::attachToWindow(SDL_Window& window)
             SDL_RENDERER_ACCELERATED |
             SDL_RENDERER_PRESENTVSYNC
             );
+    if (!renderer_) {
+        std::clog << "ERROR! SDL failed to create renderer: "
+            << SDL_GetError() << std::endl;
+    }
 }
 
 void Renderer::clear()
