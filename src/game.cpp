@@ -1,3 +1,4 @@
+#include "play_scene.h"
 #include "game.h"
 
 Game::Game(const std::string& name, size_t width, size_t height)
@@ -9,35 +10,23 @@ Game::Game(const std::string& name, size_t width, size_t height)
 
 void Game::run()
 {
+    sceneManager_.push(new PlayScene(renderer_));
+    
     auto last = SDL_GetTicks();
-    while (isRunning_) {
+    while (sceneManager_.hasScenes()) {
         auto now = SDL_GetTicks();
         auto elapsed = now - last;
         last = now;
-        interact();
-        update(elapsed);
-        draw();
-    }
-}
 
-void Game::interact()
-{
-    SDL_Event event;
-    while (SDL_PollEvent(&event)) {
-        if (event.type == SDL_QUIT) {
-            isRunning_ = false;
+        auto currentScene = sceneManager_.top();
+
+        currentScene->interact();
+        currentScene->update(elapsed);
+        currentScene->draw();
+
+        if (currentScene->isExiting()) {
+            sceneManager_.pop();
         }
     }
-}
-
-void Game::update(Uint32 elapsed)
-{
-
-}
-
-void Game::draw()
-{
-    renderer_.clear();
-    renderer_.show();
 }
 

@@ -4,6 +4,7 @@
 #include "sdl_application.h"
 #include "window.h"
 #include "renderer.h"
+#include "scene_manager.h"
 
 namespace
 {
@@ -20,11 +21,8 @@ class Game : public SdlApplication
     private:
         Window window_;
         Renderer renderer_;
+        SceneManager sceneManager_;
         bool isRunning_;
-
-        void interact();
-        void update(Uint32 elapsed);
-        void draw();
 };
 
 #endif // GAME_H_
