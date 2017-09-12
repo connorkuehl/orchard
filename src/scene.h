@@ -14,9 +14,10 @@ class Scene
         virtual void draw() = 0;
         bool isExiting() const;
     protected:
+        Renderer& renderer_;
+
         void shouldExit(bool value);
     private:
-        Renderer& renderer_;
         bool isExiting_;
 };
 
