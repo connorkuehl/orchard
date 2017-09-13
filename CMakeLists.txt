@@ -15,10 +15,13 @@ set(SOURCE_FILES
     src/game.cpp
     src/window.cpp
     src/renderer.cpp
+    src/resources.cpp
+    src/sprite.cpp
     src/scene_manager.cpp
     src/scene.cpp
     src/play_scene.cpp
     )
+
 add_executable(Orchard ${SOURCE_FILES})
 target_link_libraries(${PROJECT_NAME}
     ${SDL2_LIBRARY}
