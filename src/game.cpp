@@ -6,6 +6,7 @@
 Game::Game(const std::string& name, unsigned int width, unsigned int height)
 : window_{sf::VideoMode{width, height}, name.c_str()}
 {
+    window_.setFramerateLimit(60);
 }
 
 void Game::run()
@@ -13,14 +14,11 @@ void Game::run()
     sceneManager_.push(new PlayScene{window_});
 
     sf::Clock clock;
-    auto last = clock.restart();
     while (sceneManager_.hasScenes()) {
-        auto elapsed = clock.getElapsedTime();
-        last = elapsed;
-
         auto currentScene = sceneManager_.top();
 
         currentScene->interact();
+        auto elapsed = clock.restart().asSeconds();
         currentScene->update(elapsed);
         currentScene->draw();
 
