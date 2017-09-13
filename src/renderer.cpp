@@ -34,6 +34,11 @@ void Renderer::attachToWindow(SDL_Window* window)
     }
 }
 
+void Renderer::draw(IDrawable& drawable)
+{
+    drawable.draw(renderer_);
+}
+
 void Renderer::clear()
 {
     SDL_RenderClear(renderer_);
@@ -42,5 +47,10 @@ void Renderer::clear()
 void Renderer::show()
 {
     SDL_RenderPresent(renderer_);
+}
+
+SDL_Renderer* Renderer::get()
+{
+    return renderer_;
 }
 
