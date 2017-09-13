@@ -3,10 +3,12 @@
 
 #include <SFML/Graphics/RenderWindow.hpp>
 
+#include "resources.h"
+
 class Scene
 {
     public:
-        Scene(sf::RenderWindow& window);
+        Scene(sf::RenderWindow &window);
         virtual ~Scene();
 
         virtual void interact() = 0;
@@ -14,7 +16,8 @@ class Scene
         virtual void draw() = 0;
         bool isExiting() const;
     protected:
-        sf::RenderWindow& window_;
+        sf::RenderWindow &window_;
+        Resources resources_;
 
         void shouldExit(bool value);
     private:
