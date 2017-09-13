@@ -11,3 +11,8 @@ void GameObject::move(sf::Vector2i direction, sf::Uint32 delta)
     position_.x = direction.x * delta;
     position_.y = direction.y * delta;
 }
+
+const sf::Vector2i &GameObject::position() const
+{
+    return position_;
+}

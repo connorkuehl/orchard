@@ -13,6 +13,7 @@ class GameObject
         virtual void update(sf::Time &elapsed) = 0;
     protected:
         void move(sf::Vector2i direction, sf::Uint32 delta);
+        const sf::Vector2i &position() const;
     private:
         sf::Vector2i size_;
         sf::Vector2i position_;
