@@ -2,6 +2,7 @@
 #define ORCHARD_PLAY_SCENE_H
 
 #include "scene.h"
+#include "player.h"
 
 class PlayScene : public Scene
 {
@@ -13,6 +14,7 @@ class PlayScene : public Scene
        void update(sf::Time &elapsed);
        void draw();
     private:
+        Player player_;
 };
 
 #endif // ORCHARD_PLAY_SCENE_H
