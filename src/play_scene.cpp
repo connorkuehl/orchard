@@ -1,11 +1,10 @@
+#include <SFML/Window/Event.hpp>
+
 #include "play_scene.h"
 
-PlayScene::PlayScene(Renderer& renderer)
-: Scene{renderer}
-, mySprite_{32, 32}
+PlayScene::PlayScene(sf::RenderWindow& window)
+: Scene{window}
 {
-    mySprite_.setImage(resources_.loadTexture("res/characters.png"),
-            0, 32);
 }
 
 PlayScene::~PlayScene()
@@ -15,22 +14,21 @@ PlayScene::~PlayScene()
 
 void PlayScene::interact()
 {
-    SDL_Event event;
-    while (SDL_PollEvent(&event)) {
-        if (event.type == SDL_QUIT) {
+    sf::Event event;
+    while (window_.pollEvent(event)) {
+        if (event.type == sf::Event::Closed) {
             shouldExit(true);
         }
     }
 }
 
-void PlayScene::update(Uint32 elapsed)
+void PlayScene::update(sf::Time &elapsed)
 {
 }
 
 void PlayScene::draw()
 {
-    renderer_.clear();
-    renderer_.draw(mySprite_);
-    renderer_.show();
+    window_.clear();
+    window_.display();
 }
 

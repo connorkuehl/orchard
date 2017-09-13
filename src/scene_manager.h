@@ -19,4 +19,3 @@ class SceneManager
 };
 
 #endif // SCENE_MANAGER_H_
-

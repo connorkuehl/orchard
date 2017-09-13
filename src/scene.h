@@ -1,22 +1,20 @@
 #ifndef SCENE_H_
 #define SCENE_H_
 
-#include "renderer.h"
-#include "resources.h"
+#include <SFML/Graphics/RenderWindow.hpp>
 
-class Scene 
+class Scene
 {
     public:
-        Scene(Renderer& renderer);
+        Scene(sf::RenderWindow& window);
         virtual ~Scene();
 
         virtual void interact() = 0;
-        virtual void update(Uint32 elapsed) = 0;
+        virtual void update(sf::Time &elapsed) = 0;
         virtual void draw() = 0;
         bool isExiting() const;
     protected:
-        Renderer& renderer_;
-        Resources resources_;
+        sf::RenderWindow& window_;
 
         void shouldExit(bool value);
     private:
@@ -24,4 +22,3 @@ class Scene
 };
 
 #endif // SCENE_H_
-

@@ -1,22 +1,22 @@
-#include "play_scene.h"
-#include "game.h"
+#include <SFML/Window/Event.hpp>
 
-Game::Game(const std::string& name, size_t width, size_t height)
-: window_{width, height, name}
-, isRunning_ { true }
+#include "game.h"
+#include "play_scene.h"
+
+Game::Game(const std::string& name, unsigned int width, unsigned int height)
+: window_{sf::VideoMode{width, height}, name.c_str()}
 {
-    renderer_.attachToWindow(window_.get());
 }
 
 void Game::run()
 {
-    sceneManager_.push(new PlayScene(renderer_));
-    
-    auto last = SDL_GetTicks();
+    sceneManager_.push(new PlayScene{window_});
+
+    sf::Clock clock;
+    auto last = clock.restart();
     while (sceneManager_.hasScenes()) {
-        auto now = SDL_GetTicks();
-        auto elapsed = now - last;
-        last = now;
+        auto elapsed = clock.getElapsedTime();
+        last = elapsed;
 
         auto currentScene = sceneManager_.top();
 
@@ -29,4 +29,3 @@ void Game::run()
         }
     }
 }
-

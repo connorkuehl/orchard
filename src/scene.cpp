@@ -1,9 +1,8 @@
 #include "scene.h"
 
-Scene::Scene(Renderer& renderer)
-: renderer_ { renderer }
-, resources_{*renderer_.get()}
-, isExiting_ { false }
+Scene::Scene(sf::RenderWindow& window)
+: window_{window}
+, isExiting_{false}
 {
 }
 
@@ -18,4 +17,3 @@ void Scene::shouldExit(bool value)
 {
     isExiting_ = value;
 }
-

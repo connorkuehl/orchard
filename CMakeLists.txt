@@ -4,27 +4,16 @@ project(Orchard)
 set(CMAKE_CXX_STANDARD 14)
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
-find_package(SDL2 REQUIRED)
-find_package(SDL2_image REQUIRED)
+find_package(SFML REQUIRED graphics window system)
 
-include_directories(${SDL2_INCLUDE_DIR} ${SDL2_IMAGE_INCLUDE_DIRS})
+include_directories(${SFML_INCLUDE_DIR})
 
 set(SOURCE_FILES 
-    src/main.cpp
-    src/sdl_application.cpp
-    src/game.cpp
-    src/window.cpp
-    src/renderer.cpp
-    src/resources.cpp
-    src/sprite.cpp
-    src/scene_manager.cpp
-    src/scene.cpp
-    src/play_scene.cpp
+    src/main.cpp src/game.cpp src/scene.cpp src/scene_manager.cpp src/play_scene.cpp
     )
 
 add_executable(Orchard ${SOURCE_FILES})
 target_link_libraries(${PROJECT_NAME}
-    ${SDL2_LIBRARY}
-    ${SDL2_IMAGE_LIBRARIES}
+        ${SFML_LIBRARIES}
     )
 
