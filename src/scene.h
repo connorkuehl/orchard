@@ -12,7 +12,7 @@ class Scene
         virtual ~Scene();
 
         virtual void interact() = 0;
-        virtual void update(sf::Time &elapsed) = 0;
+        virtual void update(float elapsed) = 0;
         virtual void draw() = 0;
         bool isExiting() const;
     protected:

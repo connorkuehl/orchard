@@ -11,7 +11,7 @@ class PlayScene : public Scene
        ~PlayScene();
 
        void interact();
-       void update(sf::Time &elapsed);
+       void update(float elapsed);
        void draw();
     private:
         Player player_;

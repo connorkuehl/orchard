@@ -24,7 +24,7 @@ void PlayScene::interact()
     }
 }
 
-void PlayScene::update(sf::Time &elapsed)
+void PlayScene::update(float elapsed)
 {
     player_.update(elapsed);
 }

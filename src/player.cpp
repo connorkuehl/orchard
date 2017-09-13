@@ -1,21 +1,31 @@
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/Texture.hpp>
+#include <SFML/Window/Keyboard.hpp>
+#include <iostream>
 
 #include "resources.h"
 #include "player.h"
 
-Player::Player(sf::Vector2i position)
+Player::Player(sf::Vector2f position)
 : GameObject{{32, 32}, position}
 {
 }
 
-void Player::interact()
+void Player::interact(float elapsed)
 {
-
+    auto delta = SPEED * elapsed;
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+        move({-1, 0}, delta);
+    }
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+        move({1, 0}, delta);
+    }
 }
 
-void Player::update(sf::Time &elapsed)
+void Player::update(float elapsed)
 {
+    interact(elapsed);
+    sprite_.setPosition(position().x, position().y);
 
 }
 
