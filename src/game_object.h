@@ -7,15 +7,15 @@
 class GameObject
 {
     public:
-        GameObject(sf::Vector2 &size = {0, 0}, sf::Vector2 &position = {0, 0});
+        GameObject(sf::Vector2i size, sf::Vector2i position);
         virtual ~GameObject() = default;
 
         virtual void update(sf::Time &elapsed) = 0;
     protected:
-        void move(sf::Vector2 &direction, sf::Uint32 delta);
+        void move(sf::Vector2i direction, sf::Uint32 delta);
     private:
-        sf::Vector2 size_;
-        sf::Vector2 position_;
+        sf::Vector2i size_;
+        sf::Vector2i position_;
 };
 
 #endif //ORCHARD_GAME_OBJECT_H_H
