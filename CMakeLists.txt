@@ -8,12 +8,12 @@ find_package(SFML REQUIRED graphics window system)
 
 include_directories(${SFML_INCLUDE_DIR})
 
-set(SOURCE_FILES 
-    src/main.cpp src/game.cpp src/scene.cpp src/scene_manager.cpp src/play_scene.cpp
-    )
+set(SOURCE_FILES
+        src/main.cpp src/game.cpp src/scene.cpp src/scene_manager.cpp src/play_scene.cpp
+        src/game_object.cpp src/player.cpp src/resources.cpp)
 
 add_executable(Orchard ${SOURCE_FILES})
 target_link_libraries(${PROJECT_NAME}
         ${SFML_LIBRARIES}
-    )
+        )
 
