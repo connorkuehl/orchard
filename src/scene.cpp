@@ -2,6 +2,7 @@
 
 Scene::Scene(Renderer& renderer)
 : renderer_ { renderer }
+, resources_{*renderer_.get()}
 , isExiting_ { false }
 {
 }

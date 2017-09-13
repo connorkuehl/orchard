@@ -2,6 +2,7 @@
 #define SCENE_H_
 
 #include "renderer.h"
+#include "resources.h"
 
 class Scene 
 {
@@ -15,6 +16,7 @@ class Scene
         bool isExiting() const;
     protected:
         Renderer& renderer_;
+        Resources resources_;
 
         void shouldExit(bool value);
     private:
