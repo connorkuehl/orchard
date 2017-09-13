@@ -1,5 +1,5 @@
-#ifndef PLAY_SCENE_H_
-#define PLAY_SCENE_H_
+#ifndef ORCHARD_PLAY_SCENE_H
+#define ORCHARD_PLAY_SCENE_H
 
 #include "scene.h"
 
@@ -15,5 +15,5 @@ class PlayScene : public Scene
     private:
 };
 
-#endif // PLAY_SCENE_H_
+#endif // ORCHARD_PLAY_SCENE_H
 

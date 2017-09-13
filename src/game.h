@@ -1,5 +1,5 @@
-#ifndef GAME_H_
-#define GAME_H_
+#ifndef ORCHARD_GAME_H
+#define ORCHARD_GAME_H
 
 #include <string>
 
@@ -24,5 +24,5 @@ class Game
         SceneManager sceneManager_;
 };
 
-#endif // GAME_H_
+#endif // ORCHARD_GAME_H
 

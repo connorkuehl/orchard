@@ -1,5 +1,5 @@
-#ifndef SCENE_MANAGER_H_
-#define SCENE_MANAGER_H_
+#ifndef ORCHARD_SCENE_MANAGER_H
+#define ORCHARD_SCENE_MANAGER_H
 
 #include <memory>
 #include <stack>
@@ -18,4 +18,4 @@ class SceneManager
         std::stack<std::unique_ptr<Scene>> scenes_;
 };
 
-#endif // SCENE_MANAGER_H_
+#endif // ORCHARD_SCENE_MANAGER_H

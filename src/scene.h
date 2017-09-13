@@ -1,5 +1,5 @@
-#ifndef SCENE_H_
-#define SCENE_H_
+#ifndef ORCHARD_SCENE_H
+#define ORCHARD_SCENE_H
 
 #include <SFML/Graphics/RenderWindow.hpp>
 
@@ -21,4 +21,4 @@ class Scene
         bool isExiting_;
 };
 
-#endif // SCENE_H_
+#endif // ORCHARD_SCENE_H
