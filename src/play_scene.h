@@ -15,7 +15,6 @@ class PlayScene : public Scene
         void draw() override;
     private:
         Spawner spawner_;
-        Apple apple_;
 };
 
 #endif // ORCHARD_PLAY_SCENE_H
