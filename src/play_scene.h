@@ -2,6 +2,7 @@
 #define ORCHARD_PLAY_SCENE_H
 
 #include "engine/scene.h"
+#include "spawner.h"
 
 class PlayScene : public Scene
 {
@@ -12,6 +13,9 @@ class PlayScene : public Scene
         void interact() override;
         void update(float elapsed) override;
         void draw() override;
+    private:
+        Spawner spawner_;
+        Apple apple_;
 };
 
 #endif // ORCHARD_PLAY_SCENE_H

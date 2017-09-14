@@ -4,7 +4,9 @@
 
 PlayScene::PlayScene(sf::RenderWindow& window)
 : Scene{window}
+, apple_{{32, 0}}
 {
+    resources_.load(apple_);
 }
 
 void PlayScene::interact()
@@ -19,11 +21,14 @@ void PlayScene::interact()
 
 void PlayScene::update(float elapsed)
 {
+    spawner_.update();
+    apple_.update(elapsed);
 }
 
 void PlayScene::draw()
 {
     window_.clear();
+    window_.draw(apple_);
     window_.display();
 }
 
