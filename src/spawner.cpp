@@ -22,7 +22,7 @@ void Spawner::update(float elapsed)
         timer_.restart();
     }
 
-    for (auto& apple : apples_) {
+    for (auto &apple : apples_) {
         apple.update(elapsed);
     }
 
@@ -34,7 +34,7 @@ void Spawner::update(float elapsed)
 
 void Spawner::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {
-    for (const auto& apple : apples_) {
+    for (const auto &apple : apples_) {
         target.draw(apple);
     }
 }
