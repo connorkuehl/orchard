@@ -4,15 +4,8 @@
 
 PlayScene::PlayScene(sf::RenderWindow& window)
 : Scene{window}
-, player_{{0, 0}}
-{
-    resources_.load(player_);
-}
-
-PlayScene::~PlayScene()
 {
 }
-
 
 void PlayScene::interact()
 {
@@ -26,13 +19,11 @@ void PlayScene::interact()
 
 void PlayScene::update(float elapsed)
 {
-    player_.update(elapsed);
 }
 
 void PlayScene::draw()
 {
     window_.clear();
-    window_.draw(player_);
     window_.display();
 }
 
