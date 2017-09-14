@@ -13,6 +13,7 @@ class GameObject
         virtual void update(float elapsed) = 0;
     protected:
         void move(sf::Vector2f direction, float delta);
+        void setPosition(sf::Vector2f position);
         const sf::Vector2f &position() const;
     private:
         sf::Vector2f size_;
