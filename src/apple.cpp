@@ -6,6 +6,7 @@
 Apple::Apple(sf::Vector2f position, float speed)
 : GameObject{{32, 32}, position}
 , speed_{speed}
+, shouldBeDestroyed_{false}
 {
 
 }
@@ -14,12 +15,6 @@ Apple Apple::clone(sf::Vector2f position) const
 {
     Apple newApple = *this;
     newApple.lifespan_.restart();
-    // Clamp the Apples onto the screen, because the 'x' coordinate
-    // originates at the bottom left corner, they could accidentally
-    // clip off the right.
-    if (position.x > game::SCREEN_WIDTH - size().x) {
-        position.x = game::SCREEN_WIDTH - size().x;
-    }
     newApple.setPosition(position);
     return newApple;
 }
@@ -31,13 +26,21 @@ sf::Time Apple::lifeTime() const
 
 bool Apple::isDead() const
 {
-    return position().y > game::SCREEN_HEIGHT + size().y || lifeTime().asSeconds() >= LIFESPAN;
+    return shouldBeDestroyed_;
+}
+
+void Apple::die()
+{
+    shouldBeDestroyed_ = true;
 }
 
 void Apple::update(float elapsed)
 {
     move({0, 1}, elapsed * speed_);
     sprite_.setPosition(position());
+    shouldBeDestroyed_ = shouldBeDestroyed_ ||
+            position().y > game::SCREEN_HEIGHT + size().y ||
+            lifeTime().asSeconds() >= LIFESPAN;
 }
 
 void Apple::load(Resources &resources)

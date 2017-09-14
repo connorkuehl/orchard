@@ -4,6 +4,7 @@
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/System/Clock.hpp>
+#include <iostream>
 #include "engine/game_object.h"
 #include "engine/iloadable.h"
 
@@ -23,6 +24,7 @@ class Apple
 
         Apple clone(sf::Vector2f position) const;
         bool isDead() const;
+        void die();
         void update(float elapsed) override;
         void load(Resources &resources) override;
         void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
@@ -32,6 +34,7 @@ class Apple
         sf::Sprite sprite_;
         sf::Clock lifespan_;
         float speed_;
+        bool shouldBeDestroyed_;
 };
 
 #endif //ORCHARD_APPLE_H
