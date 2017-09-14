@@ -9,7 +9,7 @@
 
 namespace
 {
-    const auto SPEED = 500.f;
+    const auto APPLE_SPEED = 500.f;
     const auto LIFESPAN = 8.f;
 }
 
@@ -19,7 +19,7 @@ class Apple
 , public virtual ILoadable
 {
     public:
-        Apple(sf::Vector2f position, float speed = SPEED);
+        Apple(sf::Vector2f position, float speed = APPLE_SPEED);
 
         Apple clone(sf::Vector2f position) const;
         bool isDead() const;
