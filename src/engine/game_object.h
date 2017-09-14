@@ -3,6 +3,7 @@
 
 #include <SFML/System/Vector2.hpp>
 #include <SFML/System/Time.hpp>
+#include <SFML/Graphics/Rect.hpp>
 
 class GameObject
 {
@@ -11,6 +12,7 @@ class GameObject
         virtual ~GameObject() = default;
 
         virtual void update(float elapsed) = 0;
+        virtual bool isCollidingWith(const GameObject &other) const;
     protected:
         void move(sf::Vector2f direction, float delta);
         void setPosition(sf::Vector2f position);
@@ -19,6 +21,7 @@ class GameObject
     private:
         sf::Vector2f size_;
         sf::Vector2f position_;
+        sf::FloatRect collider_;
 };
 
 #endif //ORCHARD_GAME_OBJECT_H_H

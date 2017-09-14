@@ -26,6 +26,7 @@ void PlayScene::interact()
 
 void PlayScene::update(float elapsed)
 {
+    spawner_.isSpawnCollidingWith(player_);
     spawner_.update(elapsed);
     player_.update(elapsed);
 }
