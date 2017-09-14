@@ -8,7 +8,7 @@
 
 namespace
 {
-    const auto SPEED = 350.f;
+    const auto PLAYER_SPEED = 350.f;
 }
 
 class Player
