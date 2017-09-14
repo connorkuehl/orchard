@@ -3,7 +3,7 @@
 #include <SFML/Window/Keyboard.hpp>
 #include <iostream>
 
-#include "resources.h"
+#include "engine/resources.h"
 #include "player.h"
 
 Player::Player(sf::Vector2f position)

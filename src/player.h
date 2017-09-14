@@ -3,12 +3,12 @@
 
 #include <SFML/Graphics/Sprite.hpp>
 
-#include "iloadable.h"
-#include "game_object.h"
+#include "engine/iloadable.h"
+#include "engine/game_object.h"
 
 namespace
 {
-    const auto SPEED = 400.f;
+    const auto SPEED = 350.f;
 }
 
 class Player
