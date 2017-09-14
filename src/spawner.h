@@ -9,11 +9,12 @@ namespace
     const auto DEFAULT_SPAWN_DELAY = 1.75f;
 }
 
-class Spawner : public sf::Drawable
+class Spawner : public virtual sf::Drawable
 {
     public:
         Spawner(float initialSpawnDelay = DEFAULT_SPAWN_DELAY);
         void attachPrototype(Apple &prototype);
+        bool isSpawnCollidingWith(const GameObject &other);
         void update(float elapsed);
         void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
     private:

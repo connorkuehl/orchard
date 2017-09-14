@@ -15,6 +15,17 @@ void Spawner::attachPrototype(Apple &prototype)
     prototype_ = prototype;
 }
 
+bool Spawner::isSpawnCollidingWith(const GameObject &other){
+    bool colliding = false;
+    for (auto& apple : apples_) {
+        if (apple.isCollidingWith(other)) {
+            apple.die();
+            colliding = true;
+        }
+    }
+    return colliding;
+}
+
 void Spawner::update(float elapsed)
 {
     if (timer_.getElapsedTime().asSeconds() >= spawnDelay_) {
@@ -47,6 +58,6 @@ void Spawner::spawn()
 sf::Vector2f Spawner::randomPosition() const
 {
     static std::default_random_engine engine{};
-    static std::uniform_real_distribution<float> range{0, game::SCREEN_WIDTH};
+    static std::uniform_real_distribution<float> range{0, game::SCREEN_WIDTH - 32};
     return {range(engine), 0.f};
 }
