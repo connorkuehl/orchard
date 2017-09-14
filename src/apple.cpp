@@ -9,9 +9,21 @@ Apple::Apple(sf::Vector2f position, float speed)
 
 }
 
+Apple Apple::clone(sf::Vector2f position) const
+{
+    Apple newApple = *this;
+    newApple.setPosition(position);
+    return newApple;
+}
+
 sf::Time Apple::lifeTime() const
 {
     return lifespan_.getElapsedTime();
+}
+
+bool Apple::isDead() const
+{
+    return lifeTime().asSeconds() >= LIFESPAN;
 }
 
 void Apple::update(float elapsed)

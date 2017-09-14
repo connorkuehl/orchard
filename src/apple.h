@@ -21,10 +21,13 @@ class Apple
     public:
         Apple(sf::Vector2f position, float speed = SPEED);
 
-        sf::Time lifeTime() const;
+        Apple clone(sf::Vector2f position) const;
+        bool isDead() const;
         void update(float elapsed) override;
         void load(Resources &resources) override;
         void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
+    protected:
+        sf::Time lifeTime() const;
     private:
         sf::Sprite sprite_;
         sf::Clock lifespan_;
