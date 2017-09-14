@@ -1,20 +1,17 @@
 #ifndef ORCHARD_PLAY_SCENE_H
 #define ORCHARD_PLAY_SCENE_H
 
-#include "scene.h"
-#include "player.h"
+#include "engine/scene.h"
 
 class PlayScene : public Scene
 {
     public:
-        PlayScene(sf::RenderWindow& window);
-       ~PlayScene();
+        explicit PlayScene(sf::RenderWindow& window);
+        ~PlayScene() override = default;
 
-       void interact();
-       void update(float elapsed);
-       void draw();
-    private:
-        Player player_;
+        void interact() override;
+        void update(float elapsed) override;
+        void draw() override;
 };
 
 #endif // ORCHARD_PLAY_SCENE_H
