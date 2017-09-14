@@ -3,6 +3,7 @@
 
 #include "engine/scene.h"
 #include "spawner.h"
+#include "player.h"
 
 class PlayScene : public Scene
 {
@@ -15,6 +16,8 @@ class PlayScene : public Scene
         void draw() override;
     private:
         Spawner spawner_;
+        Player player_;
+        sf::Sprite background_;
 };
 
 #endif // ORCHARD_PLAY_SCENE_H
