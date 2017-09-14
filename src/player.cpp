@@ -1,19 +1,17 @@
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Window/Keyboard.hpp>
-#include <iostream>
-
 #include "engine/resources.h"
 #include "player.h"
 
 Player::Player(sf::Vector2f position)
-: GameObject{{32, 32}, position}
+: GameObject{PLAYER_SIZE, position}
 {
 }
 
 void Player::interact(float elapsed)
 {
-    auto delta = SPEED * elapsed;
+    auto delta = PLAYER_SPEED * elapsed;
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
         move({-1, 0}, delta);
     }
@@ -31,7 +29,7 @@ void Player::update(float elapsed)
 
 void Player::load(Resources &resources)
 {
-    auto& tex = resources.loadTexture("res/apple.png");
+    auto& tex = resources.loadTexture("res/basket.png");
     sprite_.setTexture(tex);
 }
 

@@ -9,6 +9,7 @@
 namespace
 {
     const auto PLAYER_SPEED = 350.f;
+    const sf::Vector2f PLAYER_SIZE = {32, 64};
 }
 
 class Player
