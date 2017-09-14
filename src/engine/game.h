@@ -6,18 +6,12 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 
 #include "scene_manager.h"
-
-namespace
-{
-    const int DEFAULT_WIDTH = 800;
-    const int DEFAULT_HEIGHT = 600;
-}
+#include "../game_constants.h"
 
 class Game
 {
     public:
-        Game(const std::string& name, unsigned int width = DEFAULT_WIDTH,
-                unsigned int height = DEFAULT_HEIGHT);
+        Game(const std::string& name);
         void run();
     private:
         sf::RenderWindow window_;

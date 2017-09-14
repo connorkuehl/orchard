@@ -1,10 +1,9 @@
 #include <SFML/Window/Event.hpp>
-
 #include "game.h"
 #include "../play_scene.h"
 
-Game::Game(const std::string& name, unsigned int width, unsigned int height)
-: window_{sf::VideoMode{width, height}, name.c_str()}
+Game::Game(const std::string& name)
+: window_{sf::VideoMode{game::SCREEN_WIDTH, game::SCREEN_HEIGHT}, name.c_str()}
 {
     window_.setFramerateLimit(60);
 }
