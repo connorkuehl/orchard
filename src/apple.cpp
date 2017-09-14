@@ -8,6 +8,11 @@ Apple::Apple(sf::Vector2f position)
 
 }
 
+sf::Time Apple::lifeTime() const
+{
+    return lifespan_.getElapsedTime();
+}
+
 void Apple::update(float elapsed)
 {
     move({0, -1}, elapsed * SPEED);
