@@ -1,6 +1,7 @@
 #include <SFML/Graphics/RenderTarget.hpp>
 #include "engine/resources.h"
 #include "apple.h"
+#include "game_constants.h"
 
 Apple::Apple(sf::Vector2f position, float speed)
 : GameObject{{32, 32}, position}
@@ -12,6 +13,12 @@ Apple::Apple(sf::Vector2f position, float speed)
 Apple Apple::clone(sf::Vector2f position) const
 {
     Apple newApple = *this;
+    // Clamp the Apples onto the screen, because the 'x' coordinate
+    // originates at the bottom left corner, they could accidentally
+    // clip off the right.
+    if (position.x > game::SCREEN_WIDTH - size().x) {
+        position.x = game::SCREEN_WIDTH - size().x;
+    }
     newApple.setPosition(position);
     return newApple;
 }
