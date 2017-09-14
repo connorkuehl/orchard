@@ -23,3 +23,8 @@ const sf::Vector2f &GameObject::position() const
 {
     return position_;
 }
+
+const sf::Vector2f &GameObject::size() const
+{
+    return size_;
+}

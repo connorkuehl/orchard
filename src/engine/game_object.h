@@ -15,6 +15,7 @@ class GameObject
         void move(sf::Vector2f direction, float delta);
         void setPosition(sf::Vector2f position);
         const sf::Vector2f &position() const;
+        const sf::Vector2f &size() const;
     private:
         sf::Vector2f size_;
         sf::Vector2f position_;
