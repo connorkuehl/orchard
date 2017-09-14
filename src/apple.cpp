@@ -30,7 +30,7 @@ sf::Time Apple::lifeTime() const
 
 bool Apple::isDead() const
 {
-    return lifeTime().asSeconds() >= LIFESPAN;
+    return position().y > game::SCREEN_HEIGHT + size().y || lifeTime().asSeconds() >= LIFESPAN;
 }
 
 void Apple::update(float elapsed)
