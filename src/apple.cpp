@@ -13,6 +13,7 @@ Apple::Apple(sf::Vector2f position, float speed)
 Apple Apple::clone(sf::Vector2f position) const
 {
     Apple newApple = *this;
+    newApple.lifespan_.restart();
     // Clamp the Apples onto the screen, because the 'x' coordinate
     // originates at the bottom left corner, they could accidentally
     // clip off the right.
