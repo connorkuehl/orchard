@@ -19,7 +19,7 @@ class Apple
 , public virtual ILoadable
 {
     public:
-        Apple(sf::Vector2f position);
+        Apple(sf::Vector2f position, float speed = SPEED);
 
         sf::Time lifeTime() const;
         void update(float elapsed) override;
@@ -28,6 +28,7 @@ class Apple
     private:
         sf::Sprite sprite_;
         sf::Clock lifespan_;
+        float speed_;
 };
 
 #endif //ORCHARD_APPLE_H
