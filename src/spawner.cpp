@@ -1,7 +1,6 @@
 #include <random>
 #include <algorithm>
 #include <SFML/Graphics/RenderTarget.hpp>
-#include <iostream>
 #include "game_constants.h"
 #include "spawner.h"
 
@@ -27,10 +26,10 @@ void Spawner::update(float elapsed)
         apple.update(elapsed);
     }
 
-    std::remove_if(apples_.begin(), apples_.end(),
+    apples_.erase(std::remove_if(apples_.begin(), apples_.end(),
     [](const auto &apple) {
         return apple.isDead();
-    });
+    }), apples_.end());
 }
 
 void Spawner::draw(sf::RenderTarget &target, sf::RenderStates states) const
