@@ -4,6 +4,10 @@ SceneManager::SceneManager() {}
 
 void SceneManager::push(Scene* newScene, bool isReplacing)
 {
+    if (!newScene) {
+        return;
+    }
+
     if (isReplacing) {
         pop();
     }
