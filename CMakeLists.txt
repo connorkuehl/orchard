@@ -15,6 +15,7 @@ set(SOURCE_FILES
         src/engine/game_object.cpp              src/engine/game_object.h
         src/engine/resources.cpp                src/engine/resources.h
         src/play_scene.cpp                      src/play_scene.h
+        src/main_menu_scene.cpp                 src/main_menu_scene.h
         src/player.cpp                          src/player.h
         src/apple.cpp                           src/apple.h
         src/spawner.cpp                         src/spawner.h
