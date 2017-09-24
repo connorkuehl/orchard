@@ -1,7 +1,8 @@
 #include "scene.h"
 
-Scene::Scene(sf::RenderWindow& window)
+Scene::Scene(sf::RenderWindow& window, SceneManager & sceneManager)
 : window_{window}
+, sceneManager_{sceneManager}
 , isExiting_{false}
 {
 }

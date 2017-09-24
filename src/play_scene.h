@@ -8,7 +8,7 @@
 class PlayScene : public Scene
 {
     public:
-        explicit PlayScene(sf::RenderWindow& window);
+        explicit PlayScene(sf::RenderWindow & window, SceneManager & sceneManager);
         ~PlayScene() override = default;
 
         void interact() override;

@@ -5,10 +5,12 @@
 
 #include "resources.h"
 
+class SceneManager;
+
 class Scene
 {
     public:
-        Scene(sf::RenderWindow &window);
+        Scene(sf::RenderWindow &window, SceneManager & sceneManager);
         virtual ~Scene();
 
         virtual void interact() = 0;
@@ -18,6 +20,7 @@ class Scene
     protected:
         sf::RenderWindow &window_;
         Resources resources_;
+        SceneManager & sceneManager_;
 
         void shouldExit(bool value);
     private:

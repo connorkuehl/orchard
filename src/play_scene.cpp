@@ -3,8 +3,8 @@
 #include "play_scene.h"
 #include "game_constants.h"
 
-PlayScene::PlayScene(sf::RenderWindow& window)
-: Scene{window}
+PlayScene::PlayScene(sf::RenderWindow& window, SceneManager & sceneManager)
+: Scene{window, sceneManager}
 , player_{{(game::SCREEN_WIDTH / 2) + 16, game::SCREEN_HEIGHT - 66}}
 {
     background_.setTexture(resources_.loadTexture("res/background.png"));
