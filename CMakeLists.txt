@@ -14,6 +14,7 @@ set(SOURCE_FILES
         src/engine/scene_manager.cpp            src/engine/scene_manager.h
         src/engine/game_object.cpp              src/engine/game_object.h
         src/engine/resources.cpp                src/engine/resources.h
+                                                src/engine/iloadable.h
         src/play_scene.cpp                      src/play_scene.h
         src/main_menu_scene.cpp                 src/main_menu_scene.h
         src/player.cpp                          src/player.h
