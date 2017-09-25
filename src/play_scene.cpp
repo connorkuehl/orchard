@@ -8,10 +8,18 @@ PlayScene::PlayScene(sf::RenderWindow& window, SceneManager & sceneManager)
 , player_{{(game::SCREEN_WIDTH / 2) + 16, game::SCREEN_HEIGHT - 66}}
 , score_{0}
 {
+    font_.loadFromFile("res/komika.ttf");
+    scoreText_.setPosition(game::SCREEN_WIDTH - 100, 5);
+    scoreText_.setFont(font_);
+    scoreText_.setFillColor(sf::Color::Black);
+    scoreText_.setStyle(sf::Text::Regular);
+    scoreText_.setCharacterSize(72);
     background_.setTexture(resources_.loadTexture("res/background.png"));
     resources_.load(player_);
+
     Apple apple{{32, 0}};
     resources_.load(apple);
+
     spawner_.attachPrototype(apple);
 }
 
@@ -27,9 +35,13 @@ void PlayScene::interact()
 
 void PlayScene::update(float elapsed)
 {
-    spawner_.isSpawnCollidingWith(player_);
+    if (spawner_.isSpawnCollidingWith(player_)) {
+        ++score_;
+    }
+
     spawner_.update(elapsed);
     player_.update(elapsed);
+    scoreText_.setString(std::to_string(score_));
 }
 
 void PlayScene::draw()
@@ -38,6 +50,7 @@ void PlayScene::draw()
     window_.draw(background_);
     window_.draw(spawner_);
     window_.draw(player_);
+    window_.draw(scoreText_);
     window_.display();
 }
 
