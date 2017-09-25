@@ -17,7 +17,7 @@ void MainMenuScene::interact()
             shouldExit(true);
         }
         else if (event.type == sf::Event::KeyPressed) {
-            sceneManager_.push(new PlayScene(window_, sceneManager_), true);
+            sceneManager_.transition(std::make_unique<PlayScene>(window_, sceneManager_));
         }
     }
 }
