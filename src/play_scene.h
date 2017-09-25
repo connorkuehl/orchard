@@ -18,6 +18,7 @@ class PlayScene : public Scene
         Spawner spawner_;
         Player player_;
         sf::Sprite background_;
+        size_t score_;
 };
 
 #endif // ORCHARD_PLAY_SCENE_H

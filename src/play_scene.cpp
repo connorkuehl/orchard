@@ -6,6 +6,7 @@
 PlayScene::PlayScene(sf::RenderWindow& window, SceneManager & sceneManager)
 : Scene{window, sceneManager}
 , player_{{(game::SCREEN_WIDTH / 2) + 16, game::SCREEN_HEIGHT - 66}}
+, score_{0}
 {
     background_.setTexture(resources_.loadTexture("res/background.png"));
     resources_.load(player_);
