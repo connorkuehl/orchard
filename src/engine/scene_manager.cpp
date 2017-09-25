@@ -1,18 +1,37 @@
 #include "scene_manager.h"
 
-SceneManager::SceneManager() {}
-
-void SceneManager::push(Scene* newScene, bool isReplacing)
+SceneManager::SceneManager()
+: transition_{nullptr}
+, transitionReplacing_{false}
 {
-    if (!newScene) {
+}
+
+void SceneManager::transition(std::unique_ptr<Scene> newScene, bool isReplacing)
+{
+    transition_ = std::move(newScene);
+    transitionReplacing_ = isReplacing;
+}
+
+void SceneManager::makeTransition()
+{
+    if (transition_ != nullptr) {
+        push();
+    }
+}
+
+void SceneManager::push()
+{
+    if (!transition_) {
         return;
     }
 
-    if (isReplacing) {
+    if (transitionReplacing_) {
         pop();
     }
 
-    scenes_.push(std::unique_ptr<Scene>(newScene));
+    scenes_.push(std::move(transition_));
+    transition_ = nullptr;
+    transitionReplacing_ = false;
 }
 
 void SceneManager::pop()
@@ -22,7 +41,7 @@ void SceneManager::pop()
     }
 }
 
-Scene* SceneManager::top() const
+Scene * SceneManager::top() const
 {
     if (!hasScenes()) {
         return nullptr;
@@ -33,5 +52,10 @@ Scene* SceneManager::top() const
 bool SceneManager::hasScenes() const
 {
     return !scenes_.empty();
+}
+
+bool SceneManager::awaitingTransition() const
+{
+    return transition_ != nullptr;
 }
 
