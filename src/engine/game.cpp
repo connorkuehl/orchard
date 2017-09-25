@@ -11,7 +11,8 @@ Game::Game(const std::string& name)
 
 void Game::run()
 {
-    sceneManager_.push(new MainMenuScene{window_, sceneManager_});
+    sceneManager_.transition(std::make_unique<MainMenuScene>(window_, sceneManager_), false);
+    sceneManager_.makeTransition();
 
     sf::Clock clock;
     while (sceneManager_.hasScenes()) {
@@ -24,6 +25,9 @@ void Game::run()
 
         if (currentScene->isExiting()) {
             sceneManager_.pop();
+        }
+        if (sceneManager_.awaitingTransition()) {
+            sceneManager_.makeTransition();
         }
     }
 }
