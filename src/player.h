@@ -8,7 +8,7 @@
 
 namespace
 {
-    const auto PLAYER_SPEED = 350.f;
+    const auto PLAYER_SPEED = 400.f;
     const sf::Vector2f PLAYER_SIZE = {32, 64};
 }
 
