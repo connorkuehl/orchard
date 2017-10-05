@@ -3,7 +3,7 @@
 #include "play_scene.h"
 #include "game_constants.h"
 
-PlayScene::PlayScene(sf::RenderWindow& window, SceneManager & sceneManager)
+PlayScene::PlayScene(sf::RenderWindow &window, SceneManager &sceneManager)
 : Scene{window, sceneManager}
 , player_{{(game::SCREEN_WIDTH / 2) + 16, game::SCREEN_HEIGHT - 66}}
 , score_{0}

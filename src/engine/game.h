@@ -8,10 +8,13 @@
 #include "scene_manager.h"
 #include "../game_constants.h"
 
+/**
+ * @brief The game.
+ */
 class Game
 {
     public:
-        Game(const std::string& name);
+        explicit Game(const std::string &name);
         void run();
     private:
         sf::RenderWindow window_;
@@ -19,4 +22,3 @@ class Game
 };
 
 #endif // ORCHARD_GAME_H
-

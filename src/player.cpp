@@ -29,7 +29,7 @@ void Player::update(float elapsed)
 
 void Player::load(Resources &resources)
 {
-    auto& tex = resources.loadTexture("res/basket.png");
+    auto &tex = resources.loadTexture("res/basket.png");
     sprite_.setTexture(tex);
 }
 

@@ -3,7 +3,7 @@
 #include "main_menu_scene.h"
 #include "play_scene.h"
 
-MainMenuScene::MainMenuScene(sf::RenderWindow & window, SceneManager & sceneManager)
+MainMenuScene::MainMenuScene(sf::RenderWindow &window, SceneManager &sceneManager)
 : Scene(window, sceneManager)
 {
     mainMenu_.setTexture(resources_.loadTexture("res/main_menu.png"));

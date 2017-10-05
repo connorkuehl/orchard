@@ -17,7 +17,7 @@ void Spawner::attachPrototype(Apple &prototype)
 
 bool Spawner::isSpawnCollidingWith(const GameObject &other){
     bool colliding = false;
-    for (auto& apple : apples_) {
+    for (auto &apple : apples_) {
         if (apple.isCollidingWith(other)) {
             apple.die();
             colliding = true;

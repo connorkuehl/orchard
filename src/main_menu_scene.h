@@ -8,7 +8,7 @@
 class MainMenuScene : public Scene
 {
     public:
-        explicit MainMenuScene(sf::RenderWindow & window, SceneManager & sceneManager);
+        explicit MainMenuScene(sf::RenderWindow &window, SceneManager &sceneManager);
         ~MainMenuScene() override = default;
 
         void interact() override;
