@@ -8,13 +8,18 @@
 
 #include "iloadable.h"
 
+/**
+ * @brief The Resources class is responsible for loading, distributing, and managing the lifetime of game assets.
+ */
 class Resources
 {
     public:
+        /// @brief Loads the loadable object.
         void load(ILoadable &loadable);
+        /// @brief Loads the texture at the given file location.
         sf::Texture& loadTexture(const std::string &filePath);
     private:
-        std::map<std::string, sf::Texture> textures_;
+        std::map<std::string, sf::Texture> textures_; ///< Contains all of the loaded textures.
 };
 
 #endif //ORCHARD_RESOURCES_H

@@ -14,11 +14,13 @@
 class Game
 {
     public:
+        /// @brief Constructs the game with the given name.
         explicit Game(const std::string &name);
+        /// @brief Runs the game loop.
         void run();
     private:
-        sf::RenderWindow window_;
-        SceneManager sceneManager_;
+        sf::RenderWindow window_; ///< The main game window.
+        SceneManager sceneManager_; ///< The game's scene manager.
 };
 
 #endif // ORCHARD_GAME_H

@@ -5,8 +5,8 @@
 #include "../main_menu_scene.h"
 
 /**
- * @brief Instantiates the Game.
- * @param name The game's name -- this will be used in the game window title.
+ * Constructs the game using the provided name for the window title.
+ * @param name The game's name this will be used in the game window title.
  */
 Game::Game(const std::string &name)
 : window_{sf::VideoMode{game::SCREEN_WIDTH, game::SCREEN_HEIGHT}, name.c_str()}
@@ -15,8 +15,6 @@ Game::Game(const std::string &name)
 }
 
 /**
- * @brief Runs the game.
- *
  * This method drives the game loop. The Game loop is built upon a
  * state machine for managing the game state (scenes). Once there
  * are no more scenes, the game will exit.
