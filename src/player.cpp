@@ -3,6 +3,7 @@
 #include <SFML/Window/Keyboard.hpp>
 #include "engine/resources.h"
 #include "player.h"
+#include "game_constants.h"
 
 /**
  * Constructs the Player at the given location.
@@ -45,7 +46,7 @@ void Player::update(float elapsed)
  */
 void Player::load(Resources &resources)
 {
-    auto &tex = resources.loadTexture("res/basket.png");
+    auto &tex = resources.loadTexture(asset::PLAYER_BASKET);
     sprite_.setTexture(tex);
 }
 

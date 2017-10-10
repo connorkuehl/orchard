@@ -73,7 +73,7 @@ void Apple::update(float elapsed)
  */
 void Apple::load(Resources &resources)
 {
-    sprite_.setTexture(resources.loadTexture("res/apple.png"));
+    sprite_.setTexture(resources.loadTexture(asset::APPLE));
 }
 
 /**

@@ -13,13 +13,13 @@ PlayScene::PlayScene(sf::RenderWindow &window, SceneManager &sceneManager)
 , player_{{(game::SCREEN_WIDTH / 2) + 16, game::SCREEN_HEIGHT - 66}}
 , score_{0}
 {
-    font_.loadFromFile("res/komika.ttf");
+    font_.loadFromFile(asset::GAME_FONT);
     scoreText_.setPosition(game::SCREEN_WIDTH - 100, 5);
     scoreText_.setFont(font_);
     scoreText_.setFillColor(sf::Color::Black);
     scoreText_.setStyle(sf::Text::Regular);
     scoreText_.setCharacterSize(72);
-    background_.setTexture(resources_.loadTexture("res/background.png"));
+    background_.setTexture(resources_.loadTexture(asset::PLAY_BG));
     resources_.load(player_);
 
     Apple apple{{32, 0}};
